@@ -1,0 +1,9 @@
+FROM golang:1.14 AS builder
+
+WORKDIR /usr/src
+COPY ./src .
+RUN go build -ldflags "-w" main.go
+
+FROM scratch
+COPY --from=builder /usr/src/main /main
+ENTRYPOINT [ "/main" ]
