@@ -44,7 +44,6 @@ services:
 
 volumes:
     mysql:
-        name: mysql
 
 networks: 
   node-network:
